@@ -1,0 +1,143 @@
+.wrapper {
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, #020617 0%, #0b0f1e 60%, #030712 100%);
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeDown 0.8s ease-in-out;
+}
+
+.heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #00e0ff, #007bff);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+.faqGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 90%;
+  max-width: 900px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #00e0ff;
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.2);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 224, 255, 0.2), rgba(0, 123, 255, 0.15));
+  flex-shrink: 0;
+}
+
+.iconGlow {
+  color: #00e0ff;
+  width: 22px;
+  height: 22px;
+}
+
+.question {
+  flex: 1;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.toggleIcon {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #00e0ff;
+  transition: transform 0.3s ease;
+}
+
+.answer {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.answer p {
+  color: #cfcfcf;
+  margin: 15px 0 5px 60px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.show {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.active .toggleIcon {
+  transform: rotate(180deg);
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2.2rem;
+  }
+
+  .card {
+    padding: 16px 18px;
+  }
+
+  .question {
+    font-size: 1rem;
+  }
+}

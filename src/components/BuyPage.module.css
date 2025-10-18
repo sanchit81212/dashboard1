@@ -1,0 +1,369 @@
+/* 🌈 Animated Gradient Background */
+.buyPage {
+  position: relative;
+  min-height: 100vh;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0a0a0f, #111827, #1f2937);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  padding-bottom: 100px;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 💫 Animated Overlay */
+.animatedBg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(0,255,255,0.05), transparent 40%),
+              radial-gradient(circle at 80% 80%, rgba(255,0,255,0.05), transparent 40%);
+  animation: float 10s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes float {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-20px); }
+}
+
+/* 🧠 Header Section */
+.header {
+  text-align: center;
+  padding: 80px 20px 40px;
+  z-index: 2;
+  position: relative;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #00e0ff;
+  text-shadow: 0 0 10px rgba(0, 224, 255, 0.6);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* 📦 Layout Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 0 80px;
+  z-index: 2;
+  position: relative;
+}
+
+.left, .right {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.left:hover, .right:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+}
+
+/* 💼 Plans Section */
+.sectionTitle {
+  font-size: 1.5rem;
+  color: #00e0ff;
+  margin-bottom: 10px;
+}
+
+.planNote {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.planCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid transparent;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.planCard:hover {
+  border-color: #00e0ff;
+  transform: translateY(-6px);
+  background: rgba(0, 224, 255, 0.1);
+}
+
+.planCard h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-size: 1.3rem;
+  color: #00e0ff;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.selected {
+  border-color: #00e0ff;
+  box-shadow: 0 0 15px rgba(0, 224, 255, 0.4);
+}
+
+/* ✨ Glowing Card Effect */
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 224, 255, 0.15);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.planCard:hover .cardGlow {
+  opacity: 1;
+}
+
+/* 🔥 Perks Box */
+.perksBox {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.07);
+}
+
+.perksBox h4 {
+  color: #00e0ff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.perksBox ul {
+  list-style: none;
+  padding: 0;
+  color: #bbb;
+}
+
+.perksBox li {
+  margin-bottom: 8px;
+}
+
+/* 💳 Payment Section */
+.paymentHeader {
+  font-size: 1.5rem;
+  color: #00e0ff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.paymentText, .selectMethod {
+  text-align: center;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.paymentOptions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.payButton {
+  background: transparent;
+  border: 2px solid #00e0ff;
+  color: #00e0ff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.payButton:hover {
+  background: #00e0ff;
+  color: #000;
+}
+
+.activePay {
+  background: #00e0ff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* 📱 QR Section */
+.qrSection {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.qrBox {
+  background: rgba(255,255,255,0.1);
+  display: inline-block;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.2);
+  margin-top: 10px;
+}
+
+.qrText {
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.qrNote {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* 🧾 Payment Form */
+.paymentForm {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.paymentForm h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #00e0ff;
+}
+
+.paymentForm input {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  outline: none;
+  padding: 12px;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.paymentForm input:focus {
+  background: rgba(255,255,255,0.15);
+  box-shadow: 0 0 5px #00e0ff;
+}
+
+.confirmButton {
+  background: linear-gradient(90deg, #00e0ff, #00ffa3);
+  border: none;
+  color: #000;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirmButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.5);
+}
+
+/* ✅ Success Popup */
+.successPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.successBox {
+  background: #111827;
+  border: 2px solid #00ffa3;
+  border-radius: 15px;
+  padding: 30px 40px;
+  text-align: center;
+  color: #00ffa3;
+  box-shadow: 0 0 30px rgba(0,255,163,0.2);
+}
+
+.checkmark {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* ⬅️ Back Link */
+.backLink {
+  margin-top: 20px;
+  text-align: center;
+  color: #00e0ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.backLink:hover {
+  text-decoration: underline;
+  color: #00ffa3;
+}
+
+/* ⚓ Footer */
+.footer {
+  text-align: center;
+  padding: 40px 20px 20px;
+  font-size: 0.9rem;
+  color: #bbb;
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footerSub {
+  margin-top: 5px;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+
+
+
+
+.customQR {
+  width: 120px;       /* 👈 yahan tu 100–140 px tak try kar sakta */
+  height: 120px;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.customQR:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}

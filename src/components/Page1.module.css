@@ -1,0 +1,719 @@
+/* =============================
+   RESET & BASE STYLES
+============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: black;
+  font-family: "Inter", sans-serif;
+}
+
+/* =============================
+   MAIN SECTION – FULLSCREEN ANIMATION
+============================= */
+.main {
+  position: relative;
+  height: 99.8vh;
+  width: 100vw;
+  color: white;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+
+  /* Same gradient background as top */
+  background: radial-gradient(circle at top left, #250a91, transparent 40%),
+              radial-gradient(circle at bottom right, #5217ff, transparent 35%),
+              linear-gradient(120deg, #000d3b, #09006b, #2b00b7, #000d3b);
+  background-size: 400% 400%;
+  animation: bgShift 12s ease-in-out infinite;
+
+  /* Remove white gap */
+  margin-bottom: -2px;
+}
+
+
+/* Gradient motion */
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating neon particles */
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation: floatDots 25s linear infinite;
+  opacity: 0.35;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+@keyframes floatDots {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-60px, -60px); }
+}
+
+/* Soft glow overlay for depth */
+.main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.25), transparent 75%);
+  pointer-events: none;
+}
+
+/* =============================
+   TOP OFFER BAR
+============================= */
+.offerBar {
+  background: linear-gradient(90deg, #7a2cff, #c084fc);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #fff;
+  width: 100%;
+  animation: glowPulse 3s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 10px #a855f7; }
+  50% { box-shadow: 0 0 25px #7a2cff; }
+}
+
+/* =============================
+   NAVBAR STYLING
+============================= */
+.navbar {
+  padding: 18px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.logoIcon {
+  font-weight: 800;
+  color: #7a2cff;
+  font-size: 26px;
+  margin-right: 3px;
+  text-shadow: 0 0 10px rgba(122, 44, 255, 0.8);
+}
+
+/* NAV LINKS */
+.navLinks {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.navLinks a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Underline + glow hover */
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, black, black);
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px black;
+}
+
+.navLinks a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px #7a2cff;
+}
+
+.navLinks a:hover::after {
+  width: 100%;
+}
+
+/* =============================
+   NAVBAR BUTTONS
+============================= */
+.navButtons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.btnSignup {
+  border: 2px solid #fff !important;
+  color: #fff !important;
+  background: transparent;
+  font-weight: 500;
+  border-radius: 40px;
+  padding: 8px 22px;
+  transition: all 0.3s ease;
+}
+
+.btnSignup:hover {
+  background: #fff !important;
+  color: #000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.btnDashboard {
+  background: linear-gradient(90deg, #007bff, #7a2cff) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 40px;
+  padding: 8px 22px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px rgba(122, 44, 255, 0.4);
+}
+
+.btnDashboard:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: linear-gradient(90deg, #7a2cff, #007bff) !important;
+  box-shadow: 0 0 25px rgba(122, 44, 255, 0.8);
+}
+
+/* =============================
+   HERO SECTION
+============================= */
+.hero {
+  text-align: center;
+  margin-top: 10%;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-shadow: 0 0 25px rgba(122, 44, 255, 0.5);
+  animation: fadeInDown 1.2s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.arrow {
+  color: #7a2cff;
+  font-size: 1.3em;
+}
+
+.heroSubtitle {
+  margin-top: 20px;
+  font-size: 50px;
+  color: #d1d1d1;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  animation: fadeIn 1.6s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =============================
+   HERO BUTTONS
+============================= */
+.heroButtons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.heroButtons button {
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 38px;
+  transition: all 0.3s ease;
+}
+
+/* Buy Challenge */
+.heroButtons .btn-primary {
+  background: linear-gradient(90deg, #007bff, #7a2cff) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: 0 0 15px rgba(122, 44, 255, 0.5);
+}
+
+.heroButtons .btn-primary:hover {
+  transform: scale(1.07);
+  background: linear-gradient(90deg, #7a2cff, #007bff) !important;
+  box-shadow: 0 0 25px rgba(122, 44, 255, 0.9);
+}
+
+/* Join Competition */
+.heroButtons .btn-outline-light {
+  border: 2px solid #fff !important;
+  color: #fff !important;
+  background: transparent;
+}
+
+.heroButtons .btn-outline-light:hover {
+  background: #fff !important;
+  color: #000 !important;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.yups {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px; /* 👈 thoda niche laya */
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+/* 🔥 Hover animation */
+.yups:hover {
+  transform: scale(1.08);
+  text-shadow: 0 0 20px rgba(123, 47, 247, 0.6), 0 0 40px rgba(241, 7, 163, 0.4);
+  letter-spacing: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === Dropdown Wrapper === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* === About us text === */
+.dropdownToggle {
+  color: white;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: 0.3s ease;
+}
+
+.dropdownToggle:hover {
+  color: #c2a8ff;
+}
+
+/* === Dropdown Menu Box === */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column; /* 👈 vertical layout */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 10px;
+  min-width: 160px;
+  z-index: 100;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* === Links inside dropdown === */
+.dropdownMenu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.dropdownMenu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.bigBuyButton {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #00ff88, #00b85c);
+  border: none;
+  border-radius: 60px;
+  padding: 22px 80px;
+  cursor: pointer;
+  box-shadow: 0 0 35px rgba(0, 255, 100, 0.6);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bigBuyButton:hover {
+  transform: scale(1.12);
+  background: linear-gradient(135deg, #00ffb3, #00d66b);
+  box-shadow: 0 0 50px rgba(0, 255, 150, 0.9), 0 0 20px rgba(0, 255, 150, 0.6);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Optional subtle animation on hover */
+.bigBuyButton:active {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 🌌 Base Layout */
+.main {
+  background: radial-gradient(circle at top left, #160040, #0b001e);
+  color: white;
+  min-height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* 💜 Offer Bar */
+.offerBar {
+  background: linear-gradient(90deg, #7a00ff, #b700ff);
+  color: white;
+  font-weight: 500;
+  padding: 8px 0;
+  font-size: 0.9rem;
+}
+
+/* 🌟 Navbar */
+.navbar {
+  padding: 18px 70px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.logoIcon {
+  background: linear-gradient(45deg, #00ffff, #007bff);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.navLinks {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.navLinks a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navLinks a:hover {
+  color: #00ffff;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 30px;
+  background: #1e003d;
+  padding: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+  z-index: 10;
+  width: 150px;
+}
+
+.dropdownMenu a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.dropdownMenu a:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+/* 🔘 Navbar Buttons */
+.btnSignup {
+  border: 1px solid #ffffff99;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.btnDashboard {
+  background: linear-gradient(45deg, #007bff, #00ffff);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.logoutBtn {
+  background: linear-gradient(90deg, #ff004c, #ff6600);
+  border: none;
+  color: white;
+  padding: 8px 22px;
+  font-weight: 600;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 50, 50, 0.4);
+  transition: 0.3s;
+}
+
+.logoutBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 50, 50, 0.7);
+}
+
+/* 🧠 Hero Section */
+.hero {
+  margin-top: 120px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: white;
+}
+
+.arrow {
+  font-size: 3rem;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  margin-top: 20px;
+  color: #ccccff;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 🎯 Buttons */
+.heroButtons {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.yupsLarge {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 
+               0 0 40px rgba(0, 255, 255, 0.4),
+               0 0 60px rgba(0, 255, 255, 0.3);
+  animation: glowPulse 3s ease-in-out infinite, fadeInUp 1s ease-in-out;
+}
+
+/* Sub tagline with gradient shimmer animation */
+.yupsTagline {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 500;
+  background: linear-gradient(90deg, #00f2fe, #4facfe, #00f2fe);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s ease infinite, fadeIn 1.5s ease-in-out;
+  margin-top: 10px;
+  margin-bottom: 60px;
+  letter-spacing: 0.8px;
+}
+
+/* 🔥 Keyframes for animations */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4),
+                 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8),
+                 0 0 60px rgba(0, 255, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4),
+                 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

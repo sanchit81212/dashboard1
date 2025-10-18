@@ -1,0 +1,176 @@
+.dashboard {
+  background: linear-gradient(180deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Offer Bar */
+.offerBar {
+  background: linear-gradient(90deg, #f97316, #ef4444);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* 🔹 Layout */
+.mainContent {
+  display: flex;
+  flex: 1;
+  height: 100%;
+}
+
+/* 🔹 Sidebar */
+.sidebar {
+  background: rgba(255, 255, 255, 0.8);
+  width: 75px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebarLogo {
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.sidebarIcons i {
+  font-size: 1.4rem;
+  margin: 22px 0;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sidebarIcons i:hover {
+  color: #111;
+  transform: scale(1.2);
+}
+
+/* 🔹 Dashboard Body */
+.dashboardBody {
+  flex: 1;
+  padding: 40px 50px 60px;
+}
+
+/* Header */
+.dashboardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.greenButton {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  padding: 16px 34px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+  transition: all 0.3s ease;
+}
+
+.greenButton:hover {
+  transform: scale(1.07);
+  box-shadow: 0 8px 16px rgba(22, 163, 74, 0.45);
+}
+
+/* 🔹 Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-6px);
+}
+
+.statCard h5 {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.statCard.purple {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+}
+
+/* 🔹 Bronze Card */
+.bronzeCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #78350f, #b45309);
+  color: white;
+  border-radius: 16px;
+  padding: 30px;
+  margin-top: 35px;
+  box-shadow: 0 4px 15px rgba(180, 83, 9, 0.3);
+}
+
+.badge {
+  font-size: 3rem;
+}
+
+/* 🔹 Bottom Cards */
+.bottomGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+
+.bottomCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.bottomCard h6 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+/* 🔹 Progress Bar */
+.progressBar {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progressWin {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  border-radius: 8px;
+  transition: width 1s ease-in-out;
+}

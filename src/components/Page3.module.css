@@ -1,0 +1,143 @@
+.pageContainer {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 60px 120px;
+}
+
+/* 🌍 Earth + Text layout */
+.topSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px; /* 👈 Increased gap between Earth and text */
+}
+
+.globe {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: rotate 120s linear infinite;
+  box-shadow: 0 0 60px rgba(0, 150, 255, 0.5), 0 0 100px rgba(0, 120, 255, 0.3);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.textSection {
+  flex: 1;
+}
+
+.textSection h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #c084fc;
+  margin-bottom: 25px;
+}
+
+.textSection p {
+  font-size: 1.5rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #eaeaea;
+  max-width: 700px;
+}
+
+/* 🟣 Buttons */
+.buttonContainer {
+  margin-top: 60px; /* 👈 Moved buttons slightly down */
+  display: flex;
+  gap: 20px;
+}
+
+.startButton {
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+  transition: all 0.3s ease;
+}
+
+.startButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+.learnButton {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learnButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 💸 Scrolling Earners */
+.scrollingWrapper {
+  margin-top: 80px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.scrollingContent {
+  display: inline-flex;
+  gap: 30px;
+  animation: scrollLeft 35s linear infinite;
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* 🟪 Trader Box */
+.traderBox {
+  background: rgba(128, 90, 213, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 16px;
+  padding: 16px 28px;
+  min-width: 280px;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
+  backdrop-filter: blur(8px);
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+.traderName {
+  color: #c084fc;
+  font-weight: 600;
+}
+
+.traderAmount {
+  color: #00c3ff;
+  font-weight: 700;
+  margin-left: 6px;
+}

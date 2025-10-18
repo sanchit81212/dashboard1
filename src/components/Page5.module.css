@@ -1,0 +1,72 @@
+.page {
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #020014 0%, #000010 100%);
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #b7b7ff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.subtext {
+  font-size: 1.2rem;
+  color: #a0a0d0;
+  margin-bottom: 50px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.card {
+  width: 230px;
+  height: 130px;
+  background: rgba(40, 40, 90, 0.45);
+  border: 1px solid rgba(130, 130, 255, 0.4);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(90, 90, 255, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(90, 90, 255, 0.3);
+  box-shadow: 0 0 30px rgba(130, 130, 255, 0.6);
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  color: #e6e6ff;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #a0a0ff;
+  margin-top: 5px;
+}
+
+/* Full screen effect fix */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000010;
+  overflow-x: hidden;
+}
